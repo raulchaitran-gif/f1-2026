@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F1 2026 — World Championship Season</title>
+<meta name="description" content="Full schedule, teams and drivers for the 2026 Formula 1 World Championship season. 24 races, 11 teams, 22 drivers.">
+<meta property="og:title" content="F1 2026 — World Championship Season">
+<meta property="og:description" content="Full schedule, teams and drivers for the 2026 Formula 1 World Championship. 24 races across 5 continents.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#E8002D">
+
+<!-- Favicon: F1 chequered flag as inline SVG → data URI -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23E8002D'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' font-family='Arial'>🏁%3C/text%3E%3C/svg%3E">
+<!-- Fallback PNG favicon generated via canvas at runtime -->
+<script>
+(function(){
+  const c = document.createElement('canvas');
+  c.width = c.height = 64;
+  const ctx = c.getContext('2d');
+  // Red rounded square bg
+  ctx.fillStyle = '#E8002D';
+  const r = 12;
+  ctx.beginPath();
+  ctx.moveTo(r,0); ctx.lineTo(64-r,0); ctx.quadraticCurveTo(64,0,64,r);
+  ctx.lineTo(64,64-r); ctx.quadraticCurveTo(64,64,64-r,64);
+  ctx.lineTo(r,64); ctx.quadraticCurveTo(0,64,0,64-r);
+  ctx.lineTo(0,r); ctx.quadraticCurveTo(0,0,r,0);
+  ctx.closePath(); ctx.fill();
+  // Chequered flag pattern (4x4 squares)
+  const sq = 8, cols = 4, rows = 4;
+  const ox = 16, oy = 14;
+  for(let row=0;row<rows;row++){
+    for(let col=0;col<cols;col++){
+      ctx.fillStyle = (row+col)%2===0 ? '#ffffff' : '#000000';
+      ctx.fillRect(ox+col*sq, oy+row*sq, sq, sq);
+    }
+  }
+  // Red border over chequered
+  ctx.strokeStyle='rgba(0,0,0,0.25)'; ctx.lineWidth=1;
+  ctx.strokeRect(ox, oy, sq*cols, sq*rows);
+  const link = document.createElement('link');
+  link.rel='icon'; link.type='image/png'; link.href=c.toDataURL();
+  document.head.appendChild(link);
+})();
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #E8002D;
+    --red-dim: #9a0020;
+    --gold: #FFD700;
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --card: #161616;
+    --border: #2a2a2a;
+    --text: #f0f0f0;
+    --muted: #888;
+    --sprint: #00c6ff;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  header::before {
+    content: '2026';
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 220px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .logo-area { display: flex; align-items: center; gap: 16px; }
+  .f1-badge {
+    background: var(--red);
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    padding: 6px 14px;
+    clip-path: polygon(0 0, 96% 0, 100% 100%, 4% 100%);
+  }
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  h1 span { color: var(--red); }
+  .header-meta {
+    text-align: right;
+  }
+  .header-meta p {
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .header-meta strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    padding: 0 40px;
+  }
+  .stat {
+    flex: 1;
+    padding: 18px 0;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--red);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 3px;
+  }
+
+  /* LEGEND + FILTERS */
+  .controls {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 40px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .legend { display: flex; gap: 20px; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-done { background: #444; }
+  .dot-next { background: var(--gold); }
+  .dot-upcoming { background: var(--red); }
+  .dot-sprint { background: var(--sprint); }
+
+  .filter-btns { display: flex; gap: 8px; }
+  .filter-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+  }
+
+  /* GRID */
+  .grid {
+    max-width: 1100px;
+    margin: 24px auto 60px;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+  }
+
+  /* RACE CARD */
+  .race-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .race-card:hover {
+    border-color: #444;
+    transform: translateY(-2px);
+  }
+  .race-card.is-next {
+    border-color: var(--gold);
+  }
+  .race-card.is-next::before {
+    content: 'NEXT RACE';
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--gold);
+    color: #000;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+  }
+  .race-card.is-done {
+    opacity: 0.55;
+  }
+  .race-card.is-sprint {
+    border-left: 3px solid var(--sprint);
+  }
+  .race-card.hidden { display: none; }
+
+  .card-top {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid var(--border);
+  }
+  .round-num {
+    background: var(--surface);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--muted);
+    width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .race-card.is-next .round-num { color: var(--gold); }
+  .card-title-area {
+    padding: 14px 16px;
+    flex: 1;
+    min-width: 0;
+  }
+  .country-flag {
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .race-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .race-circuit {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-body { padding: 14px 16px; }
+  .card-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .card-row:last-child { margin-bottom: 0; }
+  .meta-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+  .meta-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+  }
+  .badge-sprint { background: rgba(0,198,255,0.15); color: var(--sprint); border: 1px solid rgba(0,198,255,0.3); }
+  .badge-done { background: #1e1e1e; color: #555; border: 1px solid #2a2a2a; }
+  .badge-upcoming { background: rgba(232,0,45,0.12); color: var(--red); border: 1px solid rgba(232,0,45,0.3); }
+  .badge-new { background: rgba(255,215,0,0.12); color: var(--gold); border: 1px solid rgba(255,215,0,0.3); }
+
+  /* MODAL */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+  }
+  .overlay.open { display: flex; }
+  .modal {
+    background: var(--card);
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.2s ease;
+  }
+  @keyframes slideUp { from { transform: translateY(20px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+  .modal-header {
+    padding: 28px 28px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .modal-flag { font-size: 42px; line-height: 1; }
+  .modal-round { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .modal-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .modal-title span { color: var(--red); }
+  .modal-circuit { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .close-btn {
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    width: 32px; height: 32px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .close-btn:hover { border-color: var(--red); color: white; }
+  .modal-body { padding: 24px 28px; }
+  .modal-section { margin-bottom: 24px; }
+  .modal-section:last-child { margin-bottom: 0; }
+  .modal-section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--red);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .session-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #1e1e1e;
+    font-size: 14px;
+  }
+  .session-row:last-child { border-bottom: none; }
+  .session-name { color: var(--muted); }
+  .session-date { font-weight: 600; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; letter-spacing: 0.02em; }
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .detail-item { background: var(--surface); padding: 12px 14px; }
+  .detail-item .dl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px; }
+  .detail-item .dv { font-family: 'Barlow Condensed', sans-serif; font-size: 17px; font-weight: 700; }
+  .detail-full { grid-column: 1 / -1; }
+  .fact-box { background: rgba(232,0,45,0.06); border-left: 3px solid var(--red); padding: 12px 14px; font-size: 13px; line-height: 1.6; color: #ccc; }
+
+  /* RESULT SECTION */
+  .result-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #1e1e1e;
+    font-size: 14px;
+  }
+  .result-row:last-child { border-bottom: none; }
+  .pos { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800; width: 24px; color: var(--muted); }
+  .pos.p1 { color: var(--gold); }
+  .pos.p2 { color: #c0c0c0; }
+  .pos.p3 { color: #cd7f32; }
+  .driver-name { flex: 1; font-weight: 600; }
+  .result-time { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; color: var(--muted); }
+
+  /* NAV TABS */
+  .main-nav {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+  }
+  .nav-tab {
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--muted);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active { color: var(--red); border-bottom-color: var(--red); }
+
+  /* TEAMS SECTION */
+  .section { display: none; }
+  .section.visible { display: block; }
+
+  .teams-grid {
+    max-width: 1100px;
+    margin: 28px auto 60px;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 12px;
+  }
+
+  .team-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.15s;
+    cursor: default;
+  }
+  .team-card:hover { border-color: #3a3a3a; transform: translateY(-2px); }
+
+  .team-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .team-color-bar {
+    width: 6px;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+  .team-header-info {
+    padding: 14px 16px;
+    flex: 1;
+    min-width: 0;
+  }
+  .team-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+  }
+  .team-engine {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .team-badge-area {
+    padding: 0 16px;
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .team-new-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    background: rgba(255,215,0,0.12);
+    color: var(--gold);
+    border: 1px solid rgba(255,215,0,0.3);
+    white-space: nowrap;
+  }
+
+  .drivers-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .driver-cell {
+    padding: 14px 16px;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .driver-cell:last-child { border-right: none; }
+  .driver-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+    opacity: 0.15;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+  }
+  .driver-name-full {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+  .driver-country {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .driver-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 1px 6px;
+    margin-top: 5px;
+    border-radius: 2px;
+  }
+  .tag-champ { background: rgba(255,215,0,0.15); color: var(--gold); border: 1px solid rgba(255,215,0,0.3); }
+  .tag-rookie { background: rgba(0,198,255,0.12); color: var(--sprint); border: 1px solid rgba(0,198,255,0.25); }
+  .tag-return { background: rgba(232,0,45,0.1); color: #ff6b6b; border: 1px solid rgba(232,0,45,0.25); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #444;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 600px) {
+    header, .controls, .grid, .teams-grid { padding-left: 16px; padding-right: 16px; }
+    .stats-inner { padding: 0 16px; }
+    .header-meta { display: none; }
+    .grid, .teams-grid { grid-template-columns: 1fr; }
+    .nav-inner { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="f1-badge">F1</div>
+      <h1>Season <span>2026</span></h1>
+    </div>
+    <div class="header-meta">
+      <p>World Championship</p>
+      <strong>24 Grands Prix</strong>
+      <p style="margin-top:4px">Mar 8 — Dec 6, 2026</p>
+    </div>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="showSection('schedule',this)">📅 Schedule</button>
+    <button class="nav-tab" onclick="showSection('teams',this)">🏎 Teams &amp; Drivers</button>
+  </div>
+</nav>
+
+<div id="section-schedule" class="section visible">
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-num">24</div><div class="stat-label">Races</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-label">Sprint Events</div></div>
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">Teams</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">New Circuit</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Continents</div></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot dot-done"></div>Completed</div>
+    <div class="legend-item"><div class="legend-dot dot-next"></div>Next race</div>
+    <div class="legend-item"><div class="legend-dot dot-upcoming"></div>Upcoming</div>
+    <div class="legend-item"><div class="legend-dot dot-sprint"></div>Sprint weekend</div>
+  </div>
+  <div class="filter-btns">
+    <button class="filter-btn active" onclick="filter('all',this)">All</button>
+    <button class="filter-btn" onclick="filter('sprint',this)">Sprint</button>
+    <button class="filter-btn" onclick="filter('upcoming',this)">Upcoming</button>
+    <button class="filter-btn" onclick="filter('done',this)">Results</button>
+  </div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="close-btn" onclick="closeModal()">✕</button>
+    <div class="modal-header" id="modal-header"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<footer>Data accurate as of March 2026 · F1 2026 Season · New regulations era</footer>
+</div><!-- /section-schedule -->
+
+<div id="section-teams" class="section">
+<div class="teams-grid" id="teams-grid"></div>
+</div>
+
+<script>
+const TODAY = new Date('2026-03-14');
+
+const races = [
+  { round:1, name:'Australian Grand Prix', country:'Australia', city:'Melbourne', circuit:'Albert Park Circuit', flag:'🇦🇺', dates:'Mar 6–8', raceDate:'2026-03-08', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Mar 6'},{n:'Practice 2',d:'Fri Mar 6'},{n:'Practice 3',d:'Sat Mar 7'},{n:'Qualifying',d:'Sat Mar 7'},{n:'Race',d:'Sun Mar 8'}],
+    details:{laps:58,distance:'307.574 km',lap:'5.278 km',turns:16},
+    result:[{pos:1,driver:'G. Russell',team:'Mercedes',time:'1:23:06.801'},{pos:2,driver:'K. Antonelli',team:'Mercedes',time:'+2.974'},{pos:3,driver:'C. Leclerc',team:'Ferrari',time:'+15.519'}],
+    fact:'Russell dominated the opener of the new-regulations era, with Mercedes showing strong pace on the new 2026 cars. Cadillac made their debut, marking the first new team since Haas in 2016.'
+  },
+  { round:2, name:'Chinese Grand Prix', country:'China', city:'Shanghai', circuit:'Shanghai International Circuit', flag:'🇨🇳', dates:'Mar 13–15', raceDate:'2026-03-15', sprint:true, isNew:false,
+    sessions:[{n:'Practice 1',d:'Thu Mar 12'},{n:'Sprint Qualifying',d:'Thu Mar 12'},{n:'Sprint Race',d:'Sat Mar 14'},{n:'Qualifying',d:'Sat Mar 14'},{n:'Race',d:'Sun Mar 15'}],
+    details:{laps:56,distance:'305.066 km',lap:'5.451 km',turns:16},
+    result:null,
+    fact:'Sprint weekend. Shanghai returns for another year. The circuit\'s long back straight was designed for the new Overtake Mode replacing DRS.'
+  },
+  { round:3, name:'Japanese Grand Prix', country:'Japan', city:'Suzuka', circuit:'Suzuka International Racing Course', flag:'🇯🇵', dates:'Mar 27–29', raceDate:'2026-03-29', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Mar 27'},{n:'Practice 2',d:'Fri Mar 27'},{n:'Practice 3',d:'Sat Mar 28'},{n:'Qualifying',d:'Sat Mar 28'},{n:'Race',d:'Sun Mar 29'}],
+    details:{laps:53,distance:'307.471 km',lap:'5.807 km',turns:18},
+    result:null,
+    fact:'The iconic figure-of-eight layout at Suzuka is one of the most beloved circuits on the calendar. The 130R and Spoon curve sequences are legendary.'
+  },
+  { round:4, name:'Bahrain Grand Prix', country:'Bahrain', city:'Sakhir', circuit:'Bahrain International Circuit', flag:'🇧🇭', dates:'Apr 10–12', raceDate:'2026-04-12', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Apr 10'},{n:'Practice 2',d:'Fri Apr 10'},{n:'Practice 3',d:'Sat Apr 11'},{n:'Qualifying',d:'Sat Apr 11'},{n:'Race',d:'Sun Apr 12'}],
+    details:{laps:57,distance:'308.238 km',lap:'5.412 km',turns:15},
+    result:null,
+    fact:'Moved to April due to Ramadan. The night race under floodlights at Sakhir is a spectacular sight.'
+  },
+  { round:5, name:'Saudi Arabian Grand Prix', country:'Saudi Arabia', city:'Jeddah', circuit:'Jeddah Corniche Circuit', flag:'🇸🇦', dates:'Apr 17–19', raceDate:'2026-04-19', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Apr 17'},{n:'Practice 2',d:'Fri Apr 17'},{n:'Practice 3',d:'Sat Apr 18'},{n:'Qualifying',d:'Sat Apr 18'},{n:'Race',d:'Sun Apr 19'}],
+    details:{laps:50,distance:'308.450 km',lap:'6.174 km',turns:27},
+    result:null,
+    fact:'The Jeddah Corniche Circuit is one of the fastest street circuits in the world, with an average speed over 250 km/h.'
+  },
+  { round:6, name:'Miami Grand Prix', country:'USA', city:'Miami', circuit:'Miami International Autodrome', flag:'🇺🇸', dates:'May 1–3', raceDate:'2026-05-03', sprint:true, isNew:false,
+    sessions:[{n:'Practice 1',d:'Thu May 1'},{n:'Sprint Qualifying',d:'Thu May 1'},{n:'Sprint Race',d:'Sat May 2'},{n:'Qualifying',d:'Sat May 2'},{n:'Race',d:'Sun May 3'}],
+    details:{laps:57,distance:'308.326 km',lap:'5.412 km',turns:19},
+    result:null,
+    fact:'Sprint weekend. The Hard Rock Stadium complex hosts F1 for its fourth year. Miami\'s faux marina and vibrant atmosphere make it one of the most talked-about races.'
+  },
+  { round:7, name:'Canadian Grand Prix', country:'Canada', city:'Montréal', circuit:'Circuit Gilles Villeneuve', flag:'🇨🇦', dates:'May 22–24', raceDate:'2026-05-24', sprint:true, isNew:false,
+    sessions:[{n:'Practice 1',d:'Thu May 22'},{n:'Sprint Qualifying',d:'Thu May 22'},{n:'Sprint Race',d:'Sat May 23'},{n:'Qualifying',d:'Sat May 23'},{n:'Race',d:'Sun May 24'}],
+    details:{laps:70,distance:'305.270 km',lap:'4.361 km',turns:14},
+    result:null,
+    fact:'Sprint weekend. Canada follows Miami, allowing freight efficiencies for the back-to-back North American events. The Wall of Champions at the final chicane has claimed many victims.'
+  },
+  { round:8, name:'Monaco Grand Prix', country:'Monaco', city:'Monte Carlo', circuit:'Circuit de Monaco', flag:'🇲🇨', dates:'Jun 5–7', raceDate:'2026-06-07', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Thu Jun 5'},{n:'Practice 2',d:'Thu Jun 5'},{n:'Practice 3',d:'Sat Jun 6'},{n:'Qualifying',d:'Sat Jun 6'},{n:'Race',d:'Sun Jun 7'}],
+    details:{laps:78,distance:'259.452 km',lap:'3.337 km',turns:19},
+    result:null,
+    fact:'The jewel of the F1 calendar. Monaco is the shortest race distance but the most prestigious. The two-stop minimum rule introduced in 2025 was dropped for 2026.'
+  },
+  { round:9, name:'Barcelona-Catalunya GP', country:'Spain', city:'Barcelona', circuit:'Circuit de Barcelona-Catalunya', flag:'🇪🇸', dates:'Jun 12–14', raceDate:'2026-06-14', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Jun 12'},{n:'Practice 2',d:'Fri Jun 12'},{n:'Practice 3',d:'Sat Jun 13'},{n:'Qualifying',d:'Sat Jun 13'},{n:'Race',d:'Sun Jun 14'}],
+    details:{laps:66,distance:'307.104 km',lap:'4.657 km',turns:14},
+    result:null,
+    fact:'Barcelona keeps its race on the calendar while also hosting Madrid later in the year. Spain becomes the first country to host two F1 races simultaneously in 2026.'
+  },
+  { round:10, name:'Austrian Grand Prix', country:'Austria', city:'Spielberg', circuit:'Red Bull Ring', flag:'🇦🇹', dates:'Jun 26–28', raceDate:'2026-06-28', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Jun 26'},{n:'Practice 2',d:'Fri Jun 26'},{n:'Practice 3',d:'Sat Jun 27'},{n:'Qualifying',d:'Sat Jun 27'},{n:'Race',d:'Sun Jun 28'}],
+    details:{laps:71,distance:'307.022 km',lap:'4.326 km',turns:10},
+    result:null,
+    fact:'The Red Bull Ring sits in the Styrian mountains. Its compact 10-corner layout produces exciting racing with multiple overtaking opportunities.'
+  },
+  { round:11, name:'British Grand Prix', country:'United Kingdom', city:'Silverstone', circuit:'Silverstone Circuit', flag:'🇬🇧', dates:'Jul 3–5', raceDate:'2026-07-05', sprint:true, isNew:false,
+    sessions:[{n:'Practice 1',d:'Thu Jul 3'},{n:'Sprint Qualifying',d:'Thu Jul 3'},{n:'Sprint Race',d:'Sat Jul 4'},{n:'Qualifying',d:'Sat Jul 4'},{n:'Race',d:'Sun Jul 5'}],
+    details:{laps:52,distance:'306.198 km',lap:'5.891 km',turns:18},
+    result:null,
+    fact:'Sprint weekend. Silverstone is the home of British motorsport and hosts the oldest race on the F1 calendar. The high-speed Maggotts–Becketts complex is breathtaking.'
+  },
+  { round:12, name:'Belgian Grand Prix', country:'Belgium', city:'Spa', circuit:'Circuit de Spa-Francorchamps', flag:'🇧🇪', dates:'Jul 17–19', raceDate:'2026-07-19', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Jul 17'},{n:'Practice 2',d:'Fri Jul 17'},{n:'Practice 3',d:'Sat Jul 18'},{n:'Qualifying',d:'Sat Jul 18'},{n:'Race',d:'Sun Jul 19'}],
+    details:{laps:44,distance:'308.052 km',lap:'7.004 km',turns:19},
+    result:null,
+    fact:'Spa-Francorchamps is one of the greatest circuits in the world. Eau Rouge–Raidillon, Pouhon and Blanchimont create an unforgettable challenge.'
+  },
+  { round:13, name:'Hungarian Grand Prix', country:'Hungary', city:'Budapest', circuit:'Hungaroring', flag:'🇭🇺', dates:'Jul 24–26', raceDate:'2026-07-26', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Jul 24'},{n:'Practice 2',d:'Fri Jul 24'},{n:'Practice 3',d:'Sat Jul 25'},{n:'Qualifying',d:'Sat Jul 25'},{n:'Race',d:'Sun Jul 26'}],
+    details:{laps:70,distance:'306.630 km',lap:'4.381 km',turns:14},
+    result:null,
+    fact:'The Hungaroring is the last European race before the summer break. Often called the "Monaco of Hungary", overtaking is notoriously difficult here.'
+  },
+  { round:14, name:'Dutch Grand Prix', country:'Netherlands', city:'Zandvoort', circuit:'Circuit Zandvoort', flag:'🇳🇱', dates:'Aug 21–23', raceDate:'2026-08-23', sprint:true, isNew:false,
+    sessions:[{n:'Practice 1',d:'Thu Aug 21'},{n:'Sprint Qualifying',d:'Thu Aug 21'},{n:'Sprint Race',d:'Sat Aug 22'},{n:'Qualifying',d:'Sat Aug 22'},{n:'Race',d:'Sun Aug 23'}],
+    details:{laps:72,distance:'306.587 km',lap:'4.259 km',turns:14},
+    result:null,
+    fact:'Sprint weekend. 2026 is the final Dutch Grand Prix at Zandvoort after its return in 2021. The banked Arie Luyendyk corner provides unique spectacle. A farewell event.'
+  },
+  { round:15, name:'Italian Grand Prix', country:'Italy', city:'Monza', circuit:'Autodromo Nazionale Monza', flag:'🇮🇹', dates:'Sep 4–6', raceDate:'2026-09-06', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Sep 4'},{n:'Practice 2',d:'Fri Sep 4'},{n:'Practice 3',d:'Sat Sep 5'},{n:'Qualifying',d:'Sat Sep 5'},{n:'Race',d:'Sun Sep 6'}],
+    details:{laps:53,distance:'306.720 km',lap:'5.793 km',turns:11},
+    result:null,
+    fact:'The Temple of Speed. Monza is the fastest race on the F1 calendar. Italy has only one race in 2026 as Imola dropped off after its contract expired in 2025.'
+  },
+  { round:16, name:'Madrid Grand Prix', country:'Spain', city:'Madrid', circuit:'Madrid Street Circuit (IFEMA)', flag:'🇪🇸', dates:'Sep 11–13', raceDate:'2026-09-13', sprint:false, isNew:true,
+    sessions:[{n:'Practice 1',d:'Fri Sep 11'},{n:'Practice 2',d:'Fri Sep 11'},{n:'Practice 3',d:'Sat Sep 12'},{n:'Qualifying',d:'Sat Sep 12'},{n:'Race',d:'Sun Sep 13'}],
+    details:{laps:null,distance:'~307 km',lap:'~5.5 km',turns:null},
+    result:null,
+    fact:'🆕 NEW CIRCUIT. Madrid makes its F1 debut in 2026! The street circuit is built around the IFEMA convention centre. The final European race of the season.'
+  },
+  { round:17, name:'Azerbaijan Grand Prix', country:'Azerbaijan', city:'Baku', circuit:'Baku City Circuit', flag:'🇦🇿', dates:'Sep 25–27', raceDate:'2026-09-26', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Sep 25'},{n:'Sprint Qualifying',d:'Fri Sep 25'},{n:'Qualifying',d:'Sat Sep 26'},{n:'Race',d:'Sat Sep 26 (SATURDAY)'}],
+    details:{laps:51,distance:'306.049 km',lap:'6.003 km',turns:20},
+    result:null,
+    fact:'Baku races on a Saturday in 2026 to accommodate Azerbaijan\'s Remembrance Day. The castle section and 2.2 km straight create wild, unpredictable racing.'
+  },
+  { round:18, name:'Singapore Grand Prix', country:'Singapore', city:'Singapore', circuit:'Marina Bay Street Circuit', flag:'🇸🇬', dates:'Oct 9–11', raceDate:'2026-10-11', sprint:true, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Oct 9'},{n:'Sprint Qualifying',d:'Fri Oct 9'},{n:'Sprint Race',d:'Sat Oct 10'},{n:'Qualifying',d:'Sat Oct 10'},{n:'Race',d:'Sun Oct 11'}],
+    details:{laps:61,distance:'308.706 km',lap:'5.063 km',turns:19},
+    result:null,
+    fact:'Sprint weekend. Singapore is the only night race on the calendar. The city-state\'s skyline provides an iconic backdrop for one of the most demanding street circuits.'
+  },
+  { round:19, name:'United States Grand Prix', country:'USA', city:'Austin', circuit:'Circuit of the Americas', flag:'🇺🇸', dates:'Oct 23–25', raceDate:'2026-10-25', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Oct 23'},{n:'Practice 2',d:'Fri Oct 23'},{n:'Practice 3',d:'Sat Oct 24'},{n:'Qualifying',d:'Sat Oct 24'},{n:'Race',d:'Sun Oct 25'}],
+    details:{laps:56,distance:'308.405 km',lap:'5.513 km',turns:20},
+    result:null,
+    fact:'COTA hosts F1 for the 14th time. The sweeping Turn 1 off-camber crest and the twisty middle section make it one of the most technical tracks on the calendar.'
+  },
+  { round:20, name:'Mexico City Grand Prix', country:'Mexico', city:'Mexico City', circuit:'Autódromo Hermanos Rodríguez', flag:'🇲🇽', dates:'Oct 30 – Nov 1', raceDate:'2026-11-01', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Oct 30'},{n:'Practice 2',d:'Fri Oct 30'},{n:'Practice 3',d:'Sat Oct 31'},{n:'Qualifying',d:'Sat Oct 31'},{n:'Race',d:'Sun Nov 1'}],
+    details:{laps:71,distance:'305.354 km',lap:'4.304 km',turns:17},
+    result:null,
+    fact:'At 2,285m altitude, the thin air of Mexico City significantly reduces aerodynamic and engine performance. Teams must rethink their setups entirely for this race.'
+  },
+  { round:21, name:'São Paulo Grand Prix', country:'Brazil', city:'São Paulo', circuit:'Autódromo José Carlos Pace (Interlagos)', flag:'🇧🇷', dates:'Nov 6–8', raceDate:'2026-11-08', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Nov 6'},{n:'Practice 2',d:'Fri Nov 6'},{n:'Practice 3',d:'Sat Nov 7'},{n:'Qualifying',d:'Sat Nov 7'},{n:'Race',d:'Sun Nov 8'}],
+    details:{laps:71,distance:'305.879 km',lap:'4.309 km',turns:15},
+    result:null,
+    fact:'Interlagos has hosted some of the most dramatic races in F1 history. The anti-clockwise layout and unpredictable weather keep everyone on their toes.'
+  },
+  { round:22, name:'Las Vegas Grand Prix', country:'USA', city:'Las Vegas', circuit:'Las Vegas Strip Circuit', flag:'🇺🇸', dates:'Nov 19–21', raceDate:'2026-11-21', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Thu Nov 19'},{n:'Practice 2',d:'Thu Nov 19'},{n:'Practice 3',d:'Fri Nov 20'},{n:'Qualifying',d:'Fri Nov 20'},{n:'Race',d:'Sat Nov 21'}],
+    details:{laps:50,distance:'309.958 km',lap:'6.201 km',turns:17},
+    result:null,
+    fact:'The Saturday night race on the Las Vegas Strip is one of F1\'s most spectacular settings. Top speeds exceed 340 km/h on the straights past the iconic casinos.'
+  },
+  { round:23, name:'Qatar Grand Prix', country:'Qatar', city:'Lusail', circuit:'Lusail International Circuit', flag:'🇶🇦', dates:'Nov 27–29', raceDate:'2026-11-29', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Nov 27'},{n:'Practice 2',d:'Fri Nov 27'},{n:'Practice 3',d:'Sat Nov 28'},{n:'Qualifying',d:'Sat Nov 28'},{n:'Race',d:'Sun Nov 29'}],
+    details:{laps:57,distance:'308.611 km',lap:'5.380 km',turns:16},
+    result:null,
+    fact:'The high-speed Lusail circuit makes tyre management extremely critical. The penultimate race before the Abu Dhabi finale.'
+  },
+  { round:24, name:'Abu Dhabi Grand Prix', country:'UAE', city:'Abu Dhabi', circuit:'Yas Marina Circuit', flag:'🇦🇪', dates:'Dec 4–6', raceDate:'2026-12-06', sprint:false, isNew:false,
+    sessions:[{n:'Practice 1',d:'Fri Dec 4'},{n:'Practice 2',d:'Fri Dec 4'},{n:'Practice 3',d:'Sat Dec 5'},{n:'Qualifying',d:'Sat Dec 5'},{n:'Race',d:'Sun Dec 6'}],
+    details:{laps:58,distance:'306.183 km',lap:'5.281 km',turns:16},
+    result:null,
+    fact:'The season finale at Yas Marina traditionally crowns the World Champions. The circuit threads around the Yas Hotel and runs alongside the sea at dusk.'
+  }
+];
+
+let nextSet = false;
+function renderGrid(filter='all') {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  nextSet = false;
+  races.forEach(r => {
+    const rDate = new Date(r.raceDate);
+    const done = rDate < TODAY;
+    const next = !done && !nextSet;
+    if (next) nextSet = true;
+
+    let show = true;
+    if (filter === 'sprint' && !r.sprint) show = false;
+    if (filter === 'upcoming' && done) show = false;
+    if (filter === 'done' && !done) show = false;
+
+    const card = document.createElement('div');
+    card.className = `race-card${done?' is-done':''}${next?' is-next':''}${r.sprint?' is-sprint':''}${!show?' hidden':''}`;
+    card.onclick = () => openModal(r.round - 1);
+
+    const statusBadge = done
+      ? `<span class="badge badge-done">Completed</span>`
+      : next ? `<span class="badge badge-upcoming">Next Race</span>`
+      : r.isNew ? `<span class="badge badge-new">New Circuit</span>`
+      : `<span class="badge badge-upcoming">Upcoming</span>`;
+    const sprintBadge = r.sprint ? `<span class="badge badge-sprint" style="margin-left:6px">Sprint</span>` : '';
+
+    card.innerHTML = `
+      <div class="card-top">
+        <div class="round-num">${r.round}</div>
+        <div class="card-title-area">
+          <div class="country-flag">${r.flag}</div>
+          <div class="race-name">${r.name.replace(' Grand Prix','').replace(' GP','')}</div>
+          <div class="race-circuit">${r.circuit}</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-row">
+          <span class="meta-label">Date</span>
+          <span class="meta-value">${r.dates}</span>
+        </div>
+        <div class="card-row">
+          <span class="meta-label">Location</span>
+          <span class="meta-value">${r.city}</span>
+        </div>
+        <div class="card-row">
+          <div style="display:flex;gap:6px;align-items:center">${statusBadge}${sprintBadge}</div>
+          ${r.result ? `<span class="meta-value" style="color:var(--gold);font-size:13px">P1: ${r.result[0].driver}</span>` : ''}
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function filter(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(type);
+}
+
+function openModal(idx) {
+  const r = races[idx];
+  const rDate = new Date(r.raceDate);
+  const done = rDate < TODAY;
+
+  document.getElementById('modal-header').innerHTML = `
+    <div class="modal-flag">${r.flag}</div>
+    <div>
+      <div class="modal-round">Round ${r.round} · ${r.country}</div>
+      <div class="modal-title">${r.name.replace(' Grand Prix', '<br><span>Grand Prix</span>')}</div>
+      <div class="modal-circuit">${r.circuit} · ${r.city}</div>
+    </div>
+  `;
+
+  let body = '';
+
+  // Sessions
+  body += `<div class="modal-section"><div class="modal-section-title">Weekend Schedule</div>`;
+  r.sessions.forEach(s => {
+    body += `<div class="session-row"><span class="session-name">${s.n}</span><span class="session-date">${s.d}</span></div>`;
+  });
+  body += `</div>`;
+
+  // Details
+  body += `<div class="modal-section"><div class="modal-section-title">Circuit Details</div><div class="detail-grid">`;
+  if(r.details.laps) body += `<div class="detail-item"><div class="dl">Laps</div><div class="dv">${r.details.laps}</div></div>`;
+  body += `<div class="detail-item"><div class="dl">Distance</div><div class="dv">${r.details.distance}</div></div>`;
+  body += `<div class="detail-item"><div class="dl">Lap Length</div><div class="dv">${r.details.lap}</div></div>`;
+  if(r.details.turns) body += `<div class="detail-item"><div class="dl">Turns</div><div class="dv">${r.details.turns}</div></div>`;
+  if(r.sprint) body += `<div class="detail-item detail-full"><div class="dl">Format</div><div class="dv" style="color:var(--sprint)">Sprint Weekend</div></div>`;
+  body += `</div></div>`;
+
+  // Result
+  if (r.result) {
+    body += `<div class="modal-section"><div class="modal-section-title">Race Result (Top 3)</div>`;
+    r.result.forEach(res => {
+      body += `<div class="result-row"><div class="pos p${res.pos}">${res.pos}</div><div class="driver-name">${res.driver} <span style="color:var(--muted);font-weight:400;font-size:12px">${res.team}</span></div><div class="result-time">${res.time}</div></div>`;
+    });
+    body += `</div>`;
+  }
+
+  // Fact
+  body += `<div class="modal-section"><div class="modal-section-title">About this race</div><div class="fact-box">${r.fact}</div></div>`;
+
+  document.getElementById('modal-body').innerHTML = body;
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('overlay') || e.target.classList.contains('close-btn')) {
+    document.getElementById('overlay').classList.remove('open');
+  }
+}
+
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal({target:document.getElementById('overlay')}); });
+
+renderGrid();
+</script>
+
+<script>
+const teams = [
+  { name:'McLaren', engine:'Mercedes Power Unit', color:'#FF8000', isNew:false,
+    drivers:[
+      { num:4, first:'Lando', last:'Norris', nat:'🇬🇧 British', tags:['champ'] },
+      { num:81, first:'Oscar', last:'Piastri', nat:'🇦🇺 Australian', tags:[] }
+    ],
+    info:'Reigning constructors\' champions. Norris (2025 world champion) and Piastri enter 2026 as the pair to beat. Their partnership has been unbroken since 2023.'
+  },
+  { name:'Mercedes-AMG', engine:'Mercedes Power Unit', color:'#27F4D2', isNew:false,
+    drivers:[
+      { num:63, first:'George', last:'Russell', nat:'🇬🇧 British', tags:[] },
+      { num:12, first:'Kimi', last:'Antonelli', nat:'🇮🇹 Italian', tags:[] }
+    ],
+    info:'Russell finished 2025 as runner-up, powered by Mercedes\' new regs knowledge. Antonelli is in his sophomore season after a promising debut with three podiums.'
+  },
+  { name:'Ferrari', engine:'Ferrari Power Unit', color:'#E8002D', isNew:false,
+    drivers:[
+      { num:16, first:'Charles', last:'Leclerc', nat:'🇲🇨 Monegasque', tags:[] },
+      { num:44, first:'Lewis', last:'Hamilton', nat:'🇬🇧 British', tags:[] }
+    ],
+    info:'Hamilton\'s second season in red. Leclerc has been with Ferrari since 2019. Both hope the new regulations finally deliver a title-winning car to Maranello.'
+  },
+  { name:'Red Bull Racing', engine:'Red Bull Ford Powertrains', color:'#3671C6', isNew:false,
+    drivers:[
+      { num:1, first:'Max', last:'Verstappen', nat:'🇳🇱 Dutch', tags:[] },
+      { num:6, first:'Isack', last:'Hadjar', nat:'🇫🇷 French', tags:[] }
+    ],
+    info:'Verstappen (4× world champion) stays with Red Bull. Hadjar steps up from Racing Bulls after a strong rookie season, taking the second seat.'
+  },
+  { name:'Aston Martin Aramco', engine:'Honda RBPT', color:'#229971', isNew:false,
+    drivers:[
+      { num:14, first:'Fernando', last:'Alonso', nat:'🇪🇸 Spanish', tags:[] },
+      { num:18, first:'Lance', last:'Stroll', nat:'🇨🇦 Canadian', tags:[] }
+    ],
+    info:'The most anticipated partnership of 2026: Alonso and Adrian Newey (now Aston Martin\'s technical chief) finally united. Stroll continues alongside for a 5th consecutive season.'
+  },
+  { name:'Williams Racing', engine:'Mercedes Power Unit', color:'#64C4FF', isNew:false,
+    drivers:[
+      { num:55, first:'Carlos', last:'Sainz', nat:'🇪🇸 Spanish', tags:[] },
+      { num:23, first:'Alexander', last:'Albon', nat:'🇹🇭 Thai', tags:[] }
+    ],
+    info:'The "Carbono duo" continues after lifting Williams from the back of the grid to regular points finishers in 2025.'
+  },
+  { name:'Alpine F1 Team', engine:'Mercedes Power Unit', color:'#FF69B4', isNew:false,
+    drivers:[
+      { num:10, first:'Pierre', last:'Gasly', nat:'🇫🇷 French', tags:[] },
+      { num:43, first:'Franco', last:'Colapinto', nat:'🇦🇷 Argentine', tags:[] }
+    ],
+    info:'Now running Mercedes customer power after Renault\'s exit. Gasly provides senior leadership; Colapinto secured his seat over Paul Aron for his first full season.'
+  },
+  { name:'Haas F1 Team', engine:'Ferrari Power Unit', color:'#B6BABD', isNew:false,
+    drivers:[
+      { num:31, first:'Esteban', last:'Ocon', nat:'🇫🇷 French', tags:[] },
+      { num:87, first:'Oliver', last:'Bearman', nat:'🇬🇧 British', tags:[] }
+    ],
+    info:'Ocon is in his second season with Haas; Bearman is in his first full campaign after impressive cameos in 2024–25. An all-French lineup at the wheel, with British flavour.'
+  },
+  { name:'Audi F1 (ex-Sauber)', engine:'Audi Power Unit', color:'#C0C0C0', isNew:true,
+    drivers:[
+      { num:27, first:'Nico', last:'Hülkenberg', nat:'🇩🇪 German', tags:[] },
+      { num:5, first:'Gabriel', last:'Bortoleto', nat:'🇧🇷 Brazilian', tags:[] }
+    ],
+    info:'Audi\'s works debut after acquiring Sauber. Their own power unit is brand new. Hülkenberg brings experience; Bortoleto (2024 F2 champion) impressed in his 2025 rookie year.'
+  },
+  { name:'Racing Bulls', engine:'Red Bull Ford Powertrains', color:'#6692FF', isNew:false,
+    drivers:[
+      { num:30, first:'Liam', last:'Lawson', nat:'🇳🇿 New Zealander', tags:[] },
+      { num:58, first:'Arvid', last:'Lindblad', nat:'🇸🇪 Swedish', tags:['rookie'] }
+    ],
+    info:'Lawson leads as senior driver; Lindblad is the only rookie on the 2026 grid, making his debut from the Red Bull Academy aged 18.'
+  },
+  { name:'Cadillac F1 Team', engine:'Ferrari Power Unit', color:'#CC0000', isNew:true,
+    drivers:[
+      { num:11, first:'Sergio', last:'Pérez', nat:'🇲🇽 Mexican', tags:['return'] },
+      { num:77, first:'Valtteri', last:'Bottas', nat:'🇫🇮 Finnish', tags:['return'] }
+    ],
+    info:'F1\'s 11th team — the first new constructor since Haas in 2016. Both drivers return after a year away. Ferrari engines power the American outfit while GM develops its own PU.'
+  },
+];
+
+function renderTeams() {
+  const grid = document.getElementById('teams-grid');
+  grid.innerHTML = '';
+  teams.forEach(t => {
+    const card = document.createElement('div');
+    card.className = 'team-card';
+    const tagMap = { champ:'🏆 Champion', rookie:'★ Rookie', return:'↩ Return' };
+    const tagClass = { champ:'tag-champ', rookie:'tag-rookie', return:'tag-return' };
+    card.innerHTML = `
+      <div class="team-header">
+        <div class="team-color-bar" style="background:${t.color}"></div>
+        <div class="team-header-info">
+          <div class="team-name">${t.name}</div>
+          <div class="team-engine">${t.engine}</div>
+        </div>
+        ${t.isNew ? '<div class="team-badge-area"><span class="team-new-badge">New Team</span></div>' : ''}
+      </div>
+      <div class="drivers-row">
+        ${t.drivers.map(d => `
+          <div class="driver-cell">
+            <div class="driver-num" style="color:${t.color}">${d.num}</div>
+            <div class="driver-name-full">${d.first}<br>${d.last}</div>
+            <div class="driver-country">${d.nat}</div>
+            ${d.tags.map(tag => `<span class="driver-tag ${tagClass[tag]}">${tagMap[tag]}</span>`).join('')}
+          </div>
+        `).join('')}
+      </div>
+      <div style="padding:12px 16px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);line-height:1.6">${t.info}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function showSection(name, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+  document.querySelectorAll('.nav-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('section-' + name).classList.add('visible');
+  btn.classList.add('active');
+}
+
+renderTeams();
+</script>
+</body>
+</html>
