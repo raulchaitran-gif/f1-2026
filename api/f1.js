@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=600');
 
   const type = req.query.type || 'schedule';
-  const BASE = 'https://ergast.com/api/f1';
+  const BASE = 'https://api.jolpi.ca/ergast/f1';
   const YEAR = 2026;
 
   try {
